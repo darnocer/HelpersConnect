@@ -4,7 +4,7 @@ import "./style.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-sm navbar-light bg-light justify-content-center nav-footer">
+    <nav className="navbar navbar-expand navbar-light bg-light justify-content-center nav-footer">
       <div className="w-75 nav-fill">
         <ul className="navbar-nav">
           <li className="nav-item">

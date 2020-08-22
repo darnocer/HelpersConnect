@@ -14,7 +14,7 @@ function App() {
         <Wrapper>
           <Route exact path="/" component={Calendar} />
           <Route exact path="/Calendar" component={Calendar} />
-          <Route exact path="/details" component={Details} />
+          {/* <Route exact path="/details" component={Details} /> */}
         </Wrapper>
         <Navbar />
       </div>
