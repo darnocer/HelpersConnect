@@ -5,6 +5,9 @@ function Calendar() {
   return (
     <>
       <EventCard />
+      <EventCard />
+      <EventCard />
+      <EventCard />
     </>
   );
 }

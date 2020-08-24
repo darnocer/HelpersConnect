@@ -5,7 +5,7 @@ import "./style.css";
 function EventCard() {
   return (
     <div className="columns is-centered">
-      <div className="column is-half">
+      <div className="column is-two-thirds">
         <div className="card p-4">
           <EventData />
         </div>

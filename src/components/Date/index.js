@@ -3,9 +3,15 @@ import "./style.css";
 
 function Date() {
   return (
-    <div className="date has-text-centered p-3">
-      <h3 className="month">AUG</h3>
-      <h3 className="day">20</h3>
+    <div className="badge container">
+      <div className="fulldate">
+        <h1>
+          <span className="month">OCT</span>
+        </h1>
+        <h1>
+          <span className="day">23</span>
+        </h1>
+      </div>
     </div>
   );
 }
