@@ -1,6 +1,5 @@
 .day,
 .month {
-  font-size: 2vw;
   font-weight: 300;
   line-height: none;
   padding: 0;
@@ -8,17 +7,20 @@
   display: inline-block;
 }
 
+.day {
+  font-size: 1.4rem;
+}
+
 .month {
-  font-size: 1vw !important;
+  font-size: 0.8rem;
 }
 
 .badge {
   padding: 1.8em;
   color: white;
-  background-color: #bbbbbb;
-  height: 5vw;
-  width: 5vw;
-  min-height: 50px;
+  background-color: var(--primary-color);
+  min-height: 65px;
+  min-width: 65px;
   overflow: hidden;
 }
 
@@ -35,7 +37,8 @@
   padding-top: 15%;
   height: 100%;
   width: 100%;
-  min-height: 50px;
+  min-height: 65px;
+  min-width: 65px;
 }
 
 /* bootstrap .badge css  for reference */

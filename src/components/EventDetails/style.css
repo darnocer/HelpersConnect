@@ -3,3 +3,7 @@
     display: none;
   }
 }
+
+.event-name {
+  color: var(--primary-color);
+}
