@@ -9,12 +9,8 @@ function EventData() {
     <div className="container">
       <div className="row">
         <Date />
-
         <EventDetails />
-
-        <div className="col-3 test">
-          <ResponseBtns />
-        </div>
+        <ResponseBtns />
       </div>
     </div>
   );

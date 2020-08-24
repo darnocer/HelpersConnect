@@ -3,9 +3,9 @@ import "./style.css";
 
 function EventDetails() {
   return (
-    <div className="col-7 test">
+    <div className="col-7">
       <div className="event-details">
-        <h2 className="text-uppercase">
+        <h2 className="text-uppercase is-size-6">
           <strong>
             <span className="event-name">Event Name</span>
           </strong>
@@ -17,17 +17,17 @@ function EventDetails() {
           </li>
           <li className="list-inline-item">
             <i className="far fa-clock"></i>{" "}
-            <span className="start-time">6:00 PM</span> -{" "}
-            <span className="end-time">8:00 PM</span>
+            <span className="start-time">6:00PM</span> -{" "}
+            <span className="end-time">8:00PM</span>
           </li>
           <li className="list-inline-item">
             <i className="fas fa-map-marker-alt"></i>{" "}
             <span className="location">Location</span>
           </li>
         </ul>
-        <p className="details">
-          Lorem ipsum dolsit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua.
+        <p className="description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
     </div>

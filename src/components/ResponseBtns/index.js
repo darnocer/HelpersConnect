@@ -3,13 +3,15 @@ import "./style.css";
 
 function ResponseBtns() {
   return (
-    <div className="has-text-centered p-3 flexbox">
-      <btn className="button mr-1">
-        <i class="fas fa-check-circle"></i>
-      </btn>
-      <btn className="button ml-1">
-        <i class="fas fa-times-circle"></i>
-      </btn>
+    <div className="col-3 test">
+      <div className="has-text-centered flexbox">
+        <btn className="button mb-2">
+          <i class="far fa-calendar-check"></i>
+        </btn>
+        <btn className="button">
+          <i class="far fa-calendar-times"></i>
+        </btn>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 @media only screen and (max-width: 600px) {
-  .details {
+  .description {
     display: none;
   }
 }
@@ -7,3 +7,17 @@
 .event-name {
   color: var(--primary-color);
 }
+
+li > i {
+  color: var(--primary-color);
+}
+
+.col-7 {
+  padding-right: 0;
+}
+
+/* .details {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+} */
