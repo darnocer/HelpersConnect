@@ -8,6 +8,8 @@
   --accent-color: #ffcb05;
 }
 
+/* for testing purposes  */
+
 .test {
   border: 2px solid red;
 }
@@ -16,6 +18,9 @@
   border: 2px solid blue;
 }
 
+/* main  */
+
+html,
 body {
   margin: 0;
   font-family: -apple-system, "Open Sans", BlinkMacSystemFont, "Segoe UI",
@@ -23,6 +28,7 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eeeeee;
 }
 
 code {

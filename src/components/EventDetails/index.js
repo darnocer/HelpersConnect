@@ -3,7 +3,7 @@ import "./style.css";
 
 function EventDetails() {
   return (
-    <div className="col-7">
+    <div className="col-8">
       <div className="event-details">
         <h2 className="text-uppercase is-size-6">
           <strong>

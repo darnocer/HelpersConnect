@@ -3,14 +3,14 @@ import "./style.css";
 
 function ResponseBtns() {
   return (
-    <div className="col-3 test">
+    <div className="col-2">
       <div className="has-text-centered flexbox">
-        <btn className="button mb-2">
+        <button className="button is-large mb-2 mb-md-0 accept">
           <i class="far fa-calendar-check"></i>
-        </btn>
-        <btn className="button">
+        </button>
+        <button className="button is-large decline">
           <i class="far fa-calendar-times"></i>
-        </btn>
+        </button>
       </div>
     </div>
   );

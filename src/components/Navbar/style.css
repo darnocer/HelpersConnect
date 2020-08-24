@@ -5,3 +5,7 @@
   width: 100%;
   text-align: center;
 }
+
+.navbar-light {
+  background-color: #dddddd !important;
+}
