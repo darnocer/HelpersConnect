@@ -1,11 +1,14 @@
+/* accept icon color  */
 .accept i {
   color: #03700e;
 }
 
+/* decline icon color  */
 .decline i {
   color: #a21111;
 }
 
+/* button styling  */
 .button {
   background-color: #ffffff;
   border-radius: 0.5rem;

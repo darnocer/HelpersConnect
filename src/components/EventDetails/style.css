@@ -1,23 +1,31 @@
+/* hide description on mobile  */
 @media only screen and (max-width: 600px) {
   .description {
     display: none;
   }
 }
 
+/* event title  */
 .event-name {
   color: var(--primary-color);
 }
 
+/* color icons (only for day of week, time, and location) */
 li > i {
   color: var(--primary-color);
 }
 
+/* remove column padding  */
 .col-8 {
   padding-right: 0;
 }
 
-/* .details {
-  white-space: nowrap;
+/* .event-card {
+  overflow: hidden;
+}
+
+.description {
   text-overflow: ellipsis;
   overflow: hidden;
+  white-space: normal;
 } */
