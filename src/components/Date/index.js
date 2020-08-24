@@ -3,13 +3,12 @@ import "./style.css";
 
 function Date() {
   return (
-    <div className="badge container">
-      <div className="fulldate">
+    <div className="col-2 overflow-hidden justify-content-center">
+      <div className="date has-text-centered">
         <h1>
-          <span className="month">OCT</span>
-        </h1>
-        <h1>
-          <span className="day">23</span>
+          <span className="month">AUG</span>
+          <br></br>
+          <span className="day">24</span>
         </h1>
       </div>
     </div>

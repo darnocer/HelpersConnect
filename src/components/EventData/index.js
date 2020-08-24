@@ -7,14 +7,12 @@ import "./style.css";
 function EventData() {
   return (
     <div className="container">
-      <div className="row row-striped">
-        <div className="col-2 text-right">
-          <Date />
-        </div>
-        <div className="col-7">
-          <EventDetails />
-        </div>
-        <div className="col-3">
+      <div className="row">
+        <Date />
+
+        <EventDetails />
+
+        <div className="col-3 test">
           <ResponseBtns />
         </div>
       </div>

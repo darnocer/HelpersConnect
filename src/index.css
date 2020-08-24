@@ -8,6 +8,14 @@
   --accent-color: #ffcb05;
 }
 
+.test {
+  border: 2px solid red;
+}
+
+.test2 {
+  border: 2px solid blue;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, "Open Sans", BlinkMacSystemFont, "Segoe UI",
