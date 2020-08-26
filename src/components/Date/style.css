@@ -1,0 +1,72 @@
+/* increase date font size on large screens  */
+@media only screen and (min-width: 992px) {
+  .day {
+    font-size: 2em !important;
+  }
+
+  .month {
+    font-size: 1.4em !important;
+  }
+}
+
+/* add column padding back on medium screens  */
+@media only screen and (min-width: 768px) {
+  .col-2 {
+    padding: 25px !important;
+  }
+}
+
+/* formatting on medium screens  */
+@media only screen and (min-width: 576px) {
+  .date {
+    max-height: 75px !important;
+  }
+
+  .date h1 {
+    padding-top: 10%;
+  }
+
+  .col-2 {
+    padding: 10px !important;
+  }
+}
+
+/* date font sizes  */
+/* day slightly bigger  */
+.day {
+  font-size: 1.4rem;
+}
+/* month slightly smaller  */
+.month {
+  font-size: 0.8rem;
+}
+
+/* positioning of date within badge  */
+.date h1 {
+  font-weight: 300;
+  line-height: none;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* date badge  */
+.date {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: inline-block;
+  width: 100%;
+  border-radius: 0.8rem;
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* remove column padding  */
+.col-2 {
+  padding: 0;
+}
