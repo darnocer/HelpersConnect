@@ -6,12 +6,10 @@ import "./style.css";
 
 function EventData() {
   return (
-    <div className="container">
-      <div className="row">
-        <Date />
-        <EventDetails />
-        <ResponseBtns />
-      </div>
+    <div className="row">
+      <Date />
+      <EventDetails />
+      <ResponseBtns />
     </div>
   );
 }
