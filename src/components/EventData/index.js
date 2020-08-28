@@ -5,21 +5,21 @@ import EventDetails from "../EventDetails";
 import ResponseBtns from "../ResponseBtns";
 import "./style.css";
 
-function EventData() {
+function EventData(props) {
   return (
-<<<<<<< HEAD
-    <div className="row">
-      <Date />
-      <EventDetails />
-      <ResponseBtns />
-=======
     <div className="container">
       <div className="row">
-        <Date />
-        <EventDetails />
+        <Date                 
+          start = {props.start}
+          end = {props.end}/>
+        <EventDetails 
+          title = {props.title}
+          start = {props.start}
+          end = {props.end}
+          description = {props.description}
+          location = {props.location}/>
         <ResponseBtns />
       </div>
->>>>>>> dc3a15d42acad625cd7663fc3af6326490e4e5bc
     </div>
   );
 }
