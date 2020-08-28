@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Calendar from "./pages/Calendar";
-import Details from "./pages/Details";
+// import Details from "./pages/Details";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Wrapper from "./components/Wrapper";
