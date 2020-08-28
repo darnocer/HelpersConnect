@@ -1,0 +1,27 @@
+@media only screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.btn-link,
+.btn-link:focus,
+.btn-link:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 0;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.collapse.show {
+  visibility: visible;
+}

@@ -1,11 +1,11 @@
 /* accept icon color  */
 .accept i {
-  color: #03700e;
+  color: var(--primary-color);
 }
 
 /* decline icon color  */
 .decline i {
-  color: #a21111;
+  color: var(--accent-color);
 }
 
 /* button styling  */

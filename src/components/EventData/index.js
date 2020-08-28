@@ -7,12 +7,19 @@ import "./style.css";
 
 function EventData() {
   return (
+<<<<<<< HEAD
+    <div className="row">
+      <Date />
+      <EventDetails />
+      <ResponseBtns />
+=======
     <div className="container">
       <div className="row">
         <Date />
         <CalData />
         <ResponseBtns />
       </div>
+>>>>>>> dc3a15d42acad625cd7663fc3af6326490e4e5bc
     </div>
   );
 }

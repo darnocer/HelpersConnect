@@ -16,7 +16,7 @@ function Navbar() {
                   ? "nav-link active"
                   : "nav-link"
               }>
-              <i class="fas fa-home fa-2x"></i>
+              <i className="fas fa-home fa-2x"></i>
             </Link>
           </li>
           <li className="nav-item">
@@ -27,7 +27,7 @@ function Navbar() {
                   ? "nav-link active"
                   : "nav-link"
               }>
-              <i class="far fa-calendar-alt fa-2x"></i>
+              <i className="far fa-calendar-alt fa-2x"></i>
             </Link>
           </li>
           <li className="nav-item">
@@ -38,7 +38,7 @@ function Navbar() {
                   ? "nav-link active"
                   : "nav-link"
               }>
-              <i class="fas fa-users fa-2x"></i>
+              <i className="fas fa-users fa-2x"></i>
             </Link>
           </li>
         </ul>
