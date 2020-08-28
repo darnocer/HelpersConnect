@@ -6,11 +6,17 @@ import EventDetails from "../EventDetails";
 import ResponseBtns from "../ResponseBtns";
 import "./style.css";
 
-function EventData() {
+function EventData(props) {
   return (
     <div className="row">
-      <Date />
-      <EventDetails />
+      <Date start={props.start} end={props.end} />
+      <EventDetails
+        title={props.title}
+        start={props.start}
+        end={props.end}
+        description={props.description}
+        location={props.location}
+      />
       <ResponseBtns />
     </div>
   );
