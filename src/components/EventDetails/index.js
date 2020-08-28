@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
 
-function EventDetails() {
+function EventDetails(props) {
   return (
     <div className="col-8">
       <div className="event-details">
         <h2 className="text-uppercase is-size-6">
           <strong>
-            <span className="event-name">Event Name</span>
+  <span className="event-name">{props.summary}</span>
           </strong>
         </h2>
         <ul className="list-inline">
