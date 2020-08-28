@@ -1,6 +1,8 @@
 import React from "react";
 import Date from "../Date";
 import CalData from "../CalData";
+import EventDetails from "../EventDetails";
+
 import ResponseBtns from "../ResponseBtns";
 import "./style.css";
 
