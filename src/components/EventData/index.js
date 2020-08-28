@@ -1,7 +1,7 @@
 import React from "react";
 import Date from "../Date";
-// import EventDetails from "../EventDetails";
-import CalData from "../CalData"
+import EventDetails from "../EventDetails";
+// import CalData from "../CalData"
 import ResponseBtns from "../ResponseBtns";
 import "./style.css";
 
@@ -16,7 +16,7 @@ function EventData() {
     <div className="container">
       <div className="row">
         <Date />
-        <CalData />
+        <EventDetails />
         <ResponseBtns />
       </div>
 >>>>>>> dc3a15d42acad625cd7663fc3af6326490e4e5bc
