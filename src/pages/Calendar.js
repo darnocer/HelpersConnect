@@ -53,6 +53,8 @@ function Calendar(){
       end = {event.end.dateTime}
       description = {event.description}
       location = {event.location}
+      key = {event.id}
+      id={event.id}
       />
       )}
       )}

@@ -17,7 +17,8 @@ function EventData(props) {
           start = {props.start}
           end = {props.end}
           description = {props.description}
-          location = {props.location}/>
+          location = {props.location}
+          id={props.id}/>
         <ResponseBtns />
       </div>
     </div>
