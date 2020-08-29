@@ -14,7 +14,7 @@ const Striped = styled.div`
   }
 
   .striped:hover {
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     border-left: 5px solid;
     border-left-color: ${primary};
     padding: 15px 0;
