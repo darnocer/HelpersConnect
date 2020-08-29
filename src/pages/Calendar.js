@@ -54,7 +54,6 @@ function Calendar(){
       description = {event.description}
       location = {event.location}
       key = {event.id}
-      id={event.id}
       />
       )}
       )}
