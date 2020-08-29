@@ -7,17 +7,9 @@ class EventDescription extends Component {
 
     icon.classList.toggle("fa-chevron-down");
     icon.classList.toggle("fa-chevron-up");
-
-    // if (icon.classList.contains("fa-chevron-down")) {
-    //   icon.classList.remove("fa-chevron-down");
-    //   icon.classList.add("fa-chevron-up");
-    // } else {
-    //   icon.classList.remove("fa-chevron-up");
-    //   icon.classList.add("fa-chevron-down");
-    // }
   };
 
-  render() {
+  render(props) {
     return (
       <>
         <div className="mobile">
@@ -45,11 +37,7 @@ class EventDescription extends Component {
                 aria-labelledby="headingOne"
                 data-parent="#accordion">
                 <div className="description card-body">
-                  <p className="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
+                  <p className="description">{this.props.description}</p>
                 </div>
               </div>
             </div>
@@ -57,10 +45,7 @@ class EventDescription extends Component {
         </div>
 
         <div className="desktop">
-          <p className="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <p className="description">{this.props.description}</p>
         </div>
       </>
     );
