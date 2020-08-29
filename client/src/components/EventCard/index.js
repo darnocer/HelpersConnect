@@ -1,6 +1,5 @@
 import React from "react";
 import EventData from "../EventData";
-// import "./style.css";
 import styled from "styled-components";
 
 const accent = "var(--accent-color);";
