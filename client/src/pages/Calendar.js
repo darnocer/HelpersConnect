@@ -4,7 +4,6 @@ import React, {useState, useEffect} from "react";
 import EventCard from "../components/EventCard";
 import moment from 'moment';
 
-const currentDate = moment().startOf('hour').fromNow(); 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
 function Calendar(){
