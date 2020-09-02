@@ -25,3 +25,7 @@
 .collapse.show {
   visibility: visible;
 }
+
+.description {
+  font-style: italic;
+}

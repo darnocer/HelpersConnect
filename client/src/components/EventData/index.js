@@ -1,20 +1,20 @@
 import React from "react";
 import Date from "../Date";
 import EventDetails from "../EventDetails";
-
 import ResponseBtns from "../ResponseBtns";
 import "./style.css";
 
-function EventData(props) {
+function EventData({ start, end, title, description, location, id }) {
   return (
     <div className="row">
-      <Date start={props.start} end={props.end} />
+      <Date start={start} end={end} />
       <EventDetails
-        title={props.title}
-        start={props.start}
-        end={props.end}
-        description={props.description}
-        location={props.location}
+        title={title}
+        start={start}
+        end={end}
+        description={description}
+        location={location}
+        id={id}
       />
       <ResponseBtns />
     </div>
