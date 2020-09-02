@@ -6,7 +6,7 @@ const passport = require("passport");
 
 const mongoose = require("mongoose");
 const routes = require("./routes/events");
-const { db } = require("./models/user");
+const db = require("./models");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -52,6 +52,7 @@ function(accessToken, refreshToken, profile, cb) {
     picture: profile.photos[0].value,
     admin: false
   }
+  
   db.User.collection.insertOne(userProfile)
   .then(data => {
     console.log("User inserted");
@@ -61,6 +62,8 @@ function(accessToken, refreshToken, profile, cb) {
     console.error(err);
     process.exit(1);
   });
+
+
   
 }));
 
@@ -72,13 +75,16 @@ app.get('/auth/google',
   ]
 }));
 
-app.get('/auth/google/callback', 
-  passport.authenticate('google',{successRedirect: '/auth/google'},{ failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('http://localhost:');
+// app.get('/auth/google/callback', 
+//   passport.authenticate('google',{successRedirect: '/auth/google'},{ failureRedirect: '/' }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect('http://localhost:');
     
-  });
+//   });
+
+//this works
+app.get("/auth/google/callback", passport.authenticate("google"));
 
 
 app.listen(PORT, function() {
