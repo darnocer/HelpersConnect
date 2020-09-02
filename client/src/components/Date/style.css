@@ -19,7 +19,7 @@
 /* formatting on medium screens  */
 @media only screen and (min-width: 576px) {
   .date {
-    max-height: 75px !important;
+    max-height: 60px !important;
   }
 
   .date h1 {
@@ -34,11 +34,11 @@
 /* date font sizes  */
 /* day slightly bigger  */
 .day {
-  font-size: 1.4rem;
+  font-size: 3vw;
 }
 /* month slightly smaller  */
 .month {
-  font-size: 0.8rem;
+  font-size: 2vw;
 }
 
 /* positioning of date within badge  */
@@ -52,6 +52,7 @@
   bottom: 0;
   right: 0;
   text-align: center;
+  padding-top: 25%;
 }
 
 /* date badge  */
