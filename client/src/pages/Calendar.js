@@ -2,7 +2,7 @@
 
 import React, {useState, useEffect} from "react";
 import EventCard from "../components/EventCard";
-
+import moment from 'moment';
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -31,12 +31,17 @@ function Calendar(){
             }).then( (response) => {
             //define a variable res that only pulls the events from the response
             let res = response.result.items
-            console.log(res)
+            res = res.filter((event) =>{
+              return event.end.dateTime >= moment().format()
+            })
+            res = res.sort((a,b) => {
+              return a.end.dateTime.localeCompare(b.end.dateTime)
+            })
             //setEvents redefines events to equal the array res
             setEvents(res)
 
             }, 
-            //i think this is a catch but not completely sure
+            //this is a fail safe in case start() does not run
             function(reason) {
             console.log(reason);
             });
