@@ -5,7 +5,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require("passport");
 
 const mongoose = require("mongoose");
-const routes = require("./routes/events")
+const routes = require("./routes/events");
+const { db } = require("./models/user");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -36,19 +37,46 @@ passport.use(new GoogleStrategy({
 },
 function(accessToken, refreshToken, profile, cb) {
   console.log(profile);
+
+  console.log(profile.name.givenName)
+  console.log(profile.name.familyName)
+  console.log(profile.emails[0].value)
+  console.log(profile.photos[0].value)
+
    //cb(null, profile.id);
-}
-));
+  userProfile = {
+
+    first_name: profile.name.givenName,
+    last_name: profile.name.familyName,
+    email: profile.emails[0].value,
+    picture: profile.photos[0].value,
+    admin: false
+  }
+  db.User.collection.insertOne(userProfile)
+  .then(data => {
+    console.log("User inserted");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+  
+}));
 
 
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ["https://mail.google.com/"] }));
+  passport.authenticate('google', { 
+     scope: [
+      "https://mail.google.com/"
+  ]
+}));
 
 app.get('/auth/google/callback', 
   passport.authenticate('google',{successRedirect: '/auth/google'},{ failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect('http://localhost:3000/');
+    res.redirect('http://localhost:');
     
   });
 
