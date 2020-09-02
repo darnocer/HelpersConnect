@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 
+// enter the Google account associated with the public calendar
+const calendarId = "prettyawesomepractice007@gmail.com";
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
 function Calendar() {
@@ -29,7 +31,7 @@ function Calendar() {
         .then(function () {
           //taking the API from above and allowing the path below to access the events in prettyawesomepractice007@gmail.com public calendar
           return gapi.client.request({
-            path: `https://www.googleapis.com/calendar/v3/calendars/prettyawesomepractice007@gmail.com/events`,
+            path: `https://www.googleapis.com/calendar/v3/calendars/${calenderId}/events?singleEvents=true`,
           });
         })
         .then(
