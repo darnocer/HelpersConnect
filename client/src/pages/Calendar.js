@@ -37,6 +37,7 @@ function Calendar() {
         .then(
           (response) => {
             //define a variable res that only pulls the events from the response
+
             let res = response.result.items;
             res = res.filter((event) => {
               return event.end.dateTime >= moment().format();
@@ -44,6 +45,8 @@ function Calendar() {
             res = res.sort((a, b) => {
               return a.end.dateTime.localeCompare(b.end.dateTime);
             });
+            console.log(res);
+
             //setEvents redefines events to equal the array res
             setEvents(res);
           },
