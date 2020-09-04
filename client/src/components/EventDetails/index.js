@@ -17,7 +17,12 @@ function EventDetails(props) {
             <li className="list-inline-item">
               <i className="far fa-calendar-alt"></i>{" "}
               <span className="day-of-week">
-                {moment(props.start).format("dddd")}
+                {moment(props.start).format("MMDDYY") ===
+                moment(props.end).format("MMDDYY")
+                  ? moment(props.start).format("dddd")
+                  : moment(props.start).format("dddd") +
+                    "-" +
+                    moment(props.end).format("dddd")}
               </span>
             </li>
             <li className="list-inline-item">
