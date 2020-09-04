@@ -1,8 +1,8 @@
 import React from "react";
-import User from "../components/User";
+import UserData from "../components/UserData";
 
 function Profile() {
-  return <User />;
+  return <UserData />;
 }
 
 export default Profile;
