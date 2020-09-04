@@ -1,12 +1,15 @@
 const express = require("express");
 
+const cookieSession = require("cookie-session");
+
 //passport
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require("passport");
 
 const mongoose = require("mongoose");
-const routes = require("./routes/events");
-const db = require("./models");
+const routes = require("./routes/events")
+
+const db = require("./models/index")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +26,17 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/volunteercalendar");
 
+//middleware, using cookies to handle authentication
+app.use(
+  //call cookieSession and provide a configuration object, 1st property is how long this cookie can exist in the browser before it expires.2nd property is a key that will be used to encrypt cookie
+  cookieSession({
+    //we want the cookie to last 45 days
+    maxAge: 45 * 24 * 60 * 60 * 1000,
+    //passed in from keys file
+    keys: "laskjdflkjasdlkf"
+  })
+);
+
 //authentication
 let GOOGLE_CLIENT_ID = "262257493602-atfp32r9ptkbf7l29tnrb09dmi3es5am.apps.googleusercontent.com"
 let GOOGLE_CLIENT_SECRET = "ulMJ6xVCI5vEf4Drv0fkX2fG"
@@ -31,7 +45,7 @@ let GOOGLE_CLIENT_SECRET = "ulMJ6xVCI5vEf4Drv0fkX2fG"
 passport.use(new GoogleStrategy({
   clientID: GOOGLE_CLIENT_ID,
   clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:3001/auth/google/callback",
+  callbackURL: "/auth/google/callback",
   scope: ['profile', 'email']
 
 },
@@ -43,7 +57,7 @@ function(accessToken, refreshToken, profile, cb) {
   console.log(profile.emails[0].value)
   console.log(profile.photos[0].value)
 
-   //cb(null, profile.id);
+
   userProfile = {
 
     first_name: profile.name.givenName,
@@ -52,7 +66,7 @@ function(accessToken, refreshToken, profile, cb) {
     picture: profile.photos[0].value,
     admin: false
   }
-  
+  //find one //conditional
   db.User.collection.insertOne(userProfile)
   .then(data => {
     console.log("User inserted");
@@ -67,24 +81,15 @@ function(accessToken, refreshToken, profile, cb) {
   
 }));
 
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+app.get("/auth/google/callback", passport.authenticate("google"), 
 
-app.get('/auth/google',
-  passport.authenticate('google', { 
-     scope: [
-      "https://mail.google.com/"
-  ]
-}));
+  (req,res) => { res.redirect("/Calendar")}
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google',{successRedirect: '/auth/google'},{ failureRedirect: '/' }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     res.redirect('http://localhost:');
-    
-//   });
-
-//this works
-app.get("/auth/google/callback", passport.authenticate("google"));
+);
 
 
 app.listen(PORT, function() {

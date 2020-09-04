@@ -4,7 +4,6 @@ import "./style.css";
 class EventDescription extends Component {
   toggleIcon = (e) => {
     const icon = e.target.lastChild;
-
     icon.classList.toggle("fa-chevron-down");
     icon.classList.toggle("fa-chevron-up");
   };
@@ -15,16 +14,16 @@ class EventDescription extends Component {
         <div className="mobile">
           <div className="accordion" id="accordion">
             <div className="description-card">
-              <div id="headingOne">
+              <div id={`heading${this.props.id}`}>
                 <h5 className="mb-0">
                   <button
                     className="btn btn-link"
                     onClick={this.toggleIcon}
                     type="button"
                     data-toggle="collapse"
-                    data-target="#collapseOne"
+                    data-target={`#collapse${this.props.id}`}
                     aria-expanded="true"
-                    aria-controls="collapseOne">
+                    aria-controls={`collapse${this.props.id}`}>
                     <i className="fas fa-info-circle"></i> Description{" "}
                     <i className="fas fa-chevron-down"></i>
                   </button>
@@ -32,9 +31,9 @@ class EventDescription extends Component {
               </div>
 
               <div
-                id="collapseOne"
+                id={`collapse${this.props.id}`}
                 className="collapse show details"
-                aria-labelledby="headingOne"
+                aria-labelledby={`heading${this.props.id}`}
                 data-parent="#accordion">
                 <div className="description card-body">
                   <p className="description">{this.props.description}</p>
