@@ -10,11 +10,11 @@ mongoose.connect(
 
 const volunteerSeed =[
     {
-    first_name: ["Amanda"],
-      last_name: ["Morris"],
-      email: ["amandalmorris31@gmail.com"],
-      picture: [""],
-      admin: [false]
+    first_name: "Amanda",
+      last_name: "Morris",
+      email: "amandalmorris31@gmail.com",
+      picture: "",
+      admin: false
     }
 ];
 const eventSeed =[
