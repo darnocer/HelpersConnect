@@ -37,7 +37,7 @@ function EventDetails(props) {
               <i className="fas fa-users"></i>{" "}
               <span className="attendees">44</span>
             </li>
-            {props.description ? (
+            {props.location ? (
               <li className="list-item">
                 <i className="fas fa-map-marker-alt"></i>{" "}
                 <span className="location">{props.location}</span>
