@@ -11,6 +11,10 @@ const Heading = styled.header`
   hr {
     border-top: 2px solid var(--accent-color);
   }
+
+  header h1 {
+    color: var(--primary-color);
+  }
 `;
 
 function Header() {
