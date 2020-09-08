@@ -33,16 +33,16 @@ function EventDetails(props) {
               -{" "}
               <span className="end-time">{moment(props.end).format("LT")}</span>
             </li>
-            <li className="list-item">
-              <i className="fas fa-users"></i>{" "}
-              <span className="attendees">44</span>
-            </li>
             {props.location ? (
               <li className="list-item">
                 <i className="fas fa-map-marker-alt"></i>{" "}
                 <span className="location">{props.location}</span>
               </li>
             ) : null}
+            <li className="list-item">
+              <i className="fas fa-users"></i>{" "}
+              <span className="attendees">44</span>
+            </li>
           </ul>
           {props.description ? (
             <EventDescription id={props.id} description={props.description} />
