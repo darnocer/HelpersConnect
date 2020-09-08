@@ -24,6 +24,14 @@ const Buttons = styled.div`
   }
 `;
 
+const Confirmation = styled.div`
+  span {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+`;
+
 function ResponseBtns(props) {
   return (
     <div className="col-2">
@@ -39,6 +47,10 @@ function ResponseBtns(props) {
             </button>
           )}
         </Buttons>
+        <br></br>
+        <Confirmation>
+          {props.accepted ? <span>You're going!</span> : null}
+        </Confirmation>
       </div>
     </div>
   );
