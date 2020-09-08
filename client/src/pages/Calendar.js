@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
+import Header from "../components/Header";
 import Search from "../components/Search";
 import moment from "moment";
 
@@ -62,6 +63,7 @@ function Calendar() {
 
   return (
     <>
+      <Header />
       <Search />
       {events.map((event) => {
         return (
