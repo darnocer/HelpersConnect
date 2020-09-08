@@ -1,16 +1,13 @@
 import React from "react";
-
 import styled from "styled-components";
 
 const Heading = styled.header`
-  /* hide hr border on screens larger than mobile  */
   @media only screen and (min-width: 768px) {
     hr {
       display: none;
     }
   }
 
-  /* line under header  */
   hr {
     border-top: 2px solid var(--accent-color);
   }
