@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import Header from "../components/Header";
+import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import moment from "moment";
 
@@ -63,7 +63,7 @@ function Calendar() {
 
   return (
     <>
-      <Header />
+      <CalHeader />
       {/* <Search handleInputChange={this.handleInputChange} /> */}
       {events.map((event) => {
         return (

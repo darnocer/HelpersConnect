@@ -17,17 +17,15 @@ const Heading = styled.header`
   }
 `;
 
-function Header() {
+function HomeHeader() {
   return (
     <Heading>
       <header className="my-4">
-        <h1 className="title is-1 has-text-centered">
-          Volunteer Calendar <i className="fas fa-hands-helping"></i>
-        </h1>
+        <h1 className="title is-1 has-text-centered">Announcements</h1>
         <hr />
       </header>
     </Heading>
   );
 }
 
-export default Header;
+export default HomeHeader;

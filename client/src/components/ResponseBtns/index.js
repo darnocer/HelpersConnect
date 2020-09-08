@@ -8,14 +8,6 @@ const Buttons = styled.div`
     }
   }
 
-  .accept i {
-    color: var(--primary-color);
-  }
-
-  .decline i {
-    color: var(--accent-color);
-  }
-
   .button {
     background-color: #ffffff;
     border-radius: 0.5rem;
@@ -37,7 +29,7 @@ function ResponseBtns(props) {
     <div className="col-2">
       <div className="has-text-centered mt-4">
         <Buttons>
-          {props.accepted ? (
+          {!props.accepted ? (
             <button className="button decline">
               <i className="far fa-calendar-times"></i>
             </button>
@@ -49,7 +41,7 @@ function ResponseBtns(props) {
         </Buttons>
         <br></br>
         <Confirmation>
-          {props.accepted ? <span>You're going!</span> : null}
+          {!props.accepted ? <span>You're going!</span> : null}
         </Confirmation>
       </div>
     </div>
