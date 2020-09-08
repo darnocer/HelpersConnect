@@ -64,7 +64,7 @@ function Calendar() {
   return (
     <>
       <Header />
-      <Search />
+      {/* <Search handleInputChange={this.handleInputChange} /> */}
       {events.map((event) => {
         return (
           <EventCard

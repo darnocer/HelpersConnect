@@ -10,7 +10,7 @@ const Searchbar = styled.div`
   }
 `;
 
-function Search() {
+function Search({ handleInputChange }) {
   return (
     <Searchbar>
       <div className="columns is-centered mt-5">
@@ -21,7 +21,7 @@ function Search() {
               type="search"
               placeholder="Search"
               aria-label="Search"
-              //   onChange={handleInputChange}
+              onChange={handleInputChange}
             />
             <button
               className="btn btn-outline-success ml-2"
