@@ -22,7 +22,7 @@ function Header() {
     <Heading>
       <header className="my-4">
         <h1 className="title is-1 has-text-centered">
-          Volunteer Calendar <i class="fas fa-hands-helping"></i>
+          Volunteer Calendar <i className="fas fa-hands-helping"></i>
         </h1>
         <hr />
       </header>
