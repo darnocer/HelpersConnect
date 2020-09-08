@@ -14,20 +14,12 @@ class Date extends Component {
             </span>
             <br></br>
             <span className="day">{moment(this.props.start).format("DD")}</span>
-            <br></br>
 
-            <span className="month">
-              {moment(this.props.start).format("MMDDYY") ===
-              moment(this.props.end).format("MMDDYY")
-                ? null
-                : "- " + moment(this.props.end).format("MMM")}
-            </span>
-            <br></br>
             <span className="day">
               {moment(this.props.start).format("MMDDYY") ===
               moment(this.props.end).format("MMDDYY")
                 ? null
-                : moment(this.props.end).format("DD")}
+                : " - " + moment(this.props.end).format("DD")}
             </span>
           </h1>
         </Badge>
