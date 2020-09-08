@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import moment from 'moment';
+// import Event from '../../../models/events'
 
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
@@ -58,6 +59,7 @@ function Calendar() {
             // })
 
             let eventArray = [...normalEvents]
+
             // eventArray = eventArray.sort((a,b) => {
             //   return a.end.date.localeCompare(b.end.dateTime)
             // })

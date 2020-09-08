@@ -29,6 +29,9 @@ passport.use(
       //console.log("refresh token", refreshToken);
       const existingUser = await User.findOne({ googleId: profile.id});
       if (existingUser) {
+        
+        userID = existingUser._id
+        
         return done(null, existingUser);
       }
 
@@ -37,6 +40,7 @@ passport.use(
         last_name: profile.name.familyName,
         picture: profile.photos[0].value
       }).save();
+      userID = user._id
       done(null, user);
 
       console.log(profile);
