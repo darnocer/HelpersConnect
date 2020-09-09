@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import moment from 'moment';
-// import Event from '../../../models/events'
-
+import CalHeader from "../components/CalHeader";
+import Search from "../components/Search";
+import moment from "moment";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -38,38 +38,21 @@ function Calendar() {
         .then(
           (response) => {
             //define a variable res that only pulls the events from the response
-            
-            let res = response.result.items
-            let normalEvents = res.filter((event) =>{
-              //add the new key value pare
-              return event.end.dateTime  >= moment().format()
-            })
-            normalEvents = normalEvents.sort((a,b) => {
-              return a.end.dateTime.localeCompare(b.end.dateTime)
-            })
-            // let allDay = res.filter((event) =>{
-            
-            //   return event.end.date  >= moment().format()
-            // })
-            // allDay = allDay.forEach((event) =>{
-            //   let sortDate[event] = event.end.date
-            // })
-            // allDay = allDay.sort((a,b) => {
-            //   return a.end.date.localeCompare(b.end.date)
-            // })
 
-            let eventArray = [...normalEvents]
+            let res = response.result.items;
+            res = res.filter((event) => {
+              return event.end.dateTime >= moment().format();
+            });
+            res = res.sort((a, b) => {
+              return a.end.dateTime.localeCompare(b.end.dateTime);
+            });
+            console.log(res);
 
-            // eventArray = eventArray.sort((a,b) => {
-            //   return a.end.date.localeCompare(b.end.dateTime)
-            // })
             //setEvents redefines events to equal the array res
-            console.log(eventArray)
-            setEvents(eventArray)
-
-            }, 
-            //this is a fail safe in case start() does not run
-            function(reason) {
+            setEvents(res);
+          },
+          //this is a fail safe in case start() does not run
+          function (reason) {
             console.log(reason);
           }
         );
@@ -80,6 +63,8 @@ function Calendar() {
 
   return (
     <>
+      <CalHeader />
+      {/* <Search handleInputChange={this.handleInputChange} /> */}
       {events.map((event) => {
         return (
           <EventCard
