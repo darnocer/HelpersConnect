@@ -5,6 +5,7 @@ import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import moment from "moment";
+import API from "../utils/API";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -61,6 +62,18 @@ function Calendar() {
     gapi.load("client", start);
   };
 
+  const [userState, setUserState] = useState({});
+
+  function handleBtnClick(e) {
+    // console.log(event.target.id);
+    const { id } = e.target;
+    setUserState({ ...userState, id: id });
+
+    API.addEvent({
+      accepted_event: userState.id,
+    }).catch((err) => console.log(err));
+  }
+
   return (
     <>
       <CalHeader />
@@ -75,6 +88,7 @@ function Calendar() {
             location={event.location}
             key={event.id}
             id={event.id}
+            handleBtnClick={handleBtnClick}
           />
         );
       })}

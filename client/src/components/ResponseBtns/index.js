@@ -34,7 +34,12 @@ function ResponseBtns(props) {
               <i className="far fa-calendar-times"></i>
             </button>
           ) : (
-            <button className="button accept">
+            <button
+              className="button accept"
+              id={props.id}
+              // onClick={() => props.doConfirm(props.eventId)}>
+              // onClick={(e) => props.doConfirm(e)}>
+              onClick={props.handleBtnClick}>
               <i className="far fa-calendar-check"></i>
             </button>
           )}
