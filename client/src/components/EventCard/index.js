@@ -21,7 +21,7 @@ const Striped = styled.div`
   }
 `;
 
-function EventCard({ title, start, end, description, location, id }) {
+function EventCard({ title, start, end, description, location, id, user}) {
   return (
     <Striped>
       <div className="columns is-centered">
@@ -34,6 +34,7 @@ function EventCard({ title, start, end, description, location, id }) {
               description={description}
               location={location}
               id={id}
+              user={user}
             />
           </div>
         </div>

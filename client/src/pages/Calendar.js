@@ -5,6 +5,7 @@ import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import moment from "moment";
+import utils from '../utils/API.js'
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -75,6 +76,7 @@ function Calendar() {
             location={event.location}
             key={event.id}
             id={event.id}
+            user={window.location.pathname}
           />
         );
       })}
