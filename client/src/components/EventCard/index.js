@@ -25,7 +25,7 @@ function EventCard({ title, start, end, description, location, id }) {
   return (
     <Striped>
       <div className="columns is-centered">
-        <div className="column is-two-thirds">
+        <div className="column is-half">
           <div className="card p-4 striped event-card">
             <EventData
               title={title}

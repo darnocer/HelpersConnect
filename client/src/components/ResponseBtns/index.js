@@ -29,7 +29,7 @@ function ResponseBtns(props) {
     <div className="col-2">
       <div className="has-text-centered mt-4">
         <Buttons>
-          {!props.accepted ? (
+          {props.accepted ? (
             <button className="button decline">
               <i className="far fa-calendar-times"></i>
             </button>
@@ -41,7 +41,7 @@ function ResponseBtns(props) {
         </Buttons>
         <br></br>
         <Confirmation>
-          {!props.accepted ? <span>You're going!</span> : null}
+          {props.accepted ? <span>You're going!</span> : null}
         </Confirmation>
       </div>
     </div>
