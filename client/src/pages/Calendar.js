@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
-import Search from "../components/Search";
 import moment from "moment";
-import API from '../utils/API.js'
+import API from "../utils/API";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -69,6 +68,16 @@ function Calendar() {
     gapi.load("client", start);
   };
 
+  const [userState, setUserState] = useState({});
+
+  function handleBtnClick(e) {
+    console.log(e.target.id);
+    const { id } = e.target;
+    setUserState({ ...userState, id: id });
+
+    API.addEvent(e.target.id).catch((err) => console.log(err));
+  }
+
   return (
     <>
       <CalHeader />
@@ -83,8 +92,7 @@ function Calendar() {
             location={event.location}
             key={event.id}
             id={event.id}
-            user={window.location.pathname}
-            handleClick={handleButton}
+            handleBtnClick={handleBtnClick}
           />
         );
       })}

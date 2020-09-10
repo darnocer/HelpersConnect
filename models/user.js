@@ -10,9 +10,17 @@ const userSchema = new Schema({
   googleId: String,
   accepted_events: [
     {
+<<<<<<< HEAD
       type: String,
     }
   ]
+=======
+      id: {
+        type: String,
+      },
+    },
+  ],
+>>>>>>> 05c4158c9622fdbd4352d5f82cb60e17c319198c
 });
 
 const User = mongoose.model("users", userSchema);

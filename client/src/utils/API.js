@@ -8,5 +8,9 @@ export default {
     },
     removeEvent: function(userData){
         return axios.delete("/api/events/:id", userData)
-    }
-}
+    },
+
+//   addEvent: function (id) {
+//     return axios.put(`/api/events/${id}`);
+//   },
+};
