@@ -26,11 +26,11 @@ module.exports = {
   // },
 
   update: function (req, res) {
-    console.log(req.params.id);
-    console.log(req.user.id);
+    console.log("event id: " + req.params.id);
+    console.log("user id: " + req.user._id);
 
     db.User.update(
-      { _id: req.user.id },
+      { _id: req.user._id },
       {
         $push: { accepted_events: req.params.id },
       }
