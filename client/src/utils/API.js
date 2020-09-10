@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 export default {
-
+//easier to write a function for this--prepare the request to be sent to controller
     addEvent: function(userData){
-        return axios.put("/api/users", userData)
+        console.log("boop", userData)
+        return axios.put("/api/events/:id", userData)
     },
     removeEvent: function(userData){
-        return axios.delete("/api/users", userData)
+        return axios.delete("/api/events/:id", userData)
     }
 }

@@ -5,19 +5,27 @@ import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import moment from "moment";
-import utils from '../utils/API.js'
+import API from '../utils/API.js'
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
 function Calendar() {
   //setup useState to equal events and have a function that can change the state of events
   const [events, setEvents] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    console.log("mounted");
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
+
+  const handleButton = (e) =>{
+    //get the user with mongodb user you have 
+    // let button = event.target
+    API.addEvent({
+      id: e.target.id
+    })
+  }
 
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
@@ -47,7 +55,6 @@ function Calendar() {
             res = res.sort((a, b) => {
               return a.end.dateTime.localeCompare(b.end.dateTime);
             });
-            console.log(res);
 
             //setEvents redefines events to equal the array res
             setEvents(res);
@@ -77,6 +84,7 @@ function Calendar() {
             key={event.id}
             id={event.id}
             user={window.location.pathname}
+            handleClick={handleButton}
           />
         );
       })}

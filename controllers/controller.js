@@ -13,11 +13,19 @@ module.exports = {
     },
 
     addEvent: function(req, res) {
-        db.User
-          .findOneAndUpdate({ _id: req.params.id }, req.body.eventId)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
+        console.log(req.body.id)
+        db.User.updateOne(
+          { _id: req.params.id }, 
+          { $push: { accepted_events: req.body.id } })
+        .then((dbModel) => {
+          res.json(dbModel);
+        })
+        .catch((err) => {
+          res.json(err);
+        });
+
       },
+
 
 
 }

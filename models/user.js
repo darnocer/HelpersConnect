@@ -8,7 +8,11 @@ const userSchema = new Schema({
   picture: { type: String },
   admin: { type: Boolean, default: false },
   googleId: String,
-  accepted_events: {type: Array}
+  accepted_events: [
+    {
+      type: String,
+    }
+  ]
 });
 
 const User = mongoose.model("users", userSchema);

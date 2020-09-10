@@ -2,7 +2,7 @@ import React from "react";
 import Date from "../Date";
 import EventDetails from "../EventDetails";
 import ResponseBtns from "../ResponseBtns";
-function EventData({ start, end, title, description, location, id, user }) {
+function EventData({ start, end, title, description, location, id, user, handleClick }) {
   function confirmEvent(e) {
     console.log(e.target.id);
 }
@@ -21,7 +21,7 @@ function EventData({ start, end, title, description, location, id, user }) {
       <ResponseBtns
       //give ResponseBtns controller the following stuff.  Passing prop
       id={id}
-      doConfirm={confirmEvent}
+      handleClick={handleClick}
       />
     </div>
   );
