@@ -11,10 +11,10 @@ module.exports = {
 
 
     addEvent: function(req, res) {
-        console.log(req.params.id)
+        console.log(req.body)
         db.User.updateOne(
-          { _id: req.params.id }, 
-          { $push: { accepted_events: req.body } })
+          { _id: { _id: req.user._id } }, 
+          { $push: { accepted_events: req.body.id } })
         .then((dbModel) => {
           res.json(dbModel);
         })

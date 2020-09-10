@@ -21,9 +21,9 @@ function Calendar() {
   const handleBtnClick = (e) =>{
     //get the user with mongodb user you have 
     // let button = event.target
-    API.addEvent(
-      e.target.id
-    )
+    API.addEvent({
+      id: e.target.id
+    })
   }
 
   const getEvents = () => {
