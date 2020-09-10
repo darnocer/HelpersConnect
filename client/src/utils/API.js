@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export default {
-  addEvent: function (id) {
-    return axios.put(`/api/events/${id}`);
+  addEvent: function (userData) {
+    console.log("boop", userData);
+    return axios.put("/api/events/:id", userData);
   },
 };

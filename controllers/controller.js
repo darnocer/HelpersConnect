@@ -9,31 +9,11 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
-  // update: function (req, res) {
-  //   console.log(req.params.id);
-  //   console.log(req.user.id);
-
-  //   db.User.updateOne(
-  //     { _id: req.user.id },
-  //     { $push: { accepted_events: req.params.id } }
-  //   )
-  //     .then((dbModel) => {
-  //       res.json(dbModel);
-  //     })
-  //     .catch((err) => {
-  //       res.json(err);
-  //     });
-  // },
-
-  update: function (req, res) {
-    console.log("event id: " + req.params.id);
-    console.log("user id: " + req.user._id);
-
-    db.User.update(
-      { _id: req.user._id },
-      {
-        $push: { accepted_events: req.params.id },
-      }
+  addEvent: function (req, res) {
+    console.log(req.body.id);
+    db.User.updateOne(
+      { _id: { _id: req.user._id } },
+      { $push: { accepted_events: req.body.id } }
     )
       .then((dbModel) => {
         res.json(dbModel);

@@ -11,6 +11,7 @@ function EventData({
   description,
   location,
   id,
+  user,
   handleBtnClick,
 }) {
   function confirmEvent(e) {
@@ -31,6 +32,7 @@ function EventData({
         description={description}
         location={location}
         id={id}
+        user={user}
       />
       <ResponseBtns
         id={id}

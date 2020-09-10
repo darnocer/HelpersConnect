@@ -68,7 +68,7 @@ function Calendar() {
     // const { id } = e.target;
     // setUserState({ ...userState, id: id });
 
-    API.addEvent(e.target.id).catch((err) => console.log(err));
+    API.addEvent({ id: e.target.id }).catch((err) => console.log(err));
   }
 
   return (
@@ -85,6 +85,7 @@ function Calendar() {
             location={event.location}
             key={event.id}
             id={event.id}
+            user={window.location.pathname}
             handleBtnClick={handleBtnClick}
           />
         );
