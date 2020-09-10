@@ -10,15 +10,18 @@ module.exports = {
   },
 
   update: function (req, res) {
-    db.User.updateOne(
-      { _id: req.params.id },
-      { $push: { accepted_events: req.body } }
-    )
-      .then((dbModel) => {
-        res.json(dbModel);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+    console.log(req.body);
+    res.json("test");
+
+    // db.User.updateOne(
+    //   { _id: req.params.id },
+    //   { $push: { accepted_events: req.body } }
+    // )
+    //   .then((dbModel) => {
+    //     res.json(dbModel);
+    //   })
+    //   .catch((err) => {
+    //     res.json(err);
+    //   });
   },
 };

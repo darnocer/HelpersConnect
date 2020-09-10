@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
-import Search from "../components/Search";
 import moment from "moment";
 import API from "../utils/API";
 
@@ -65,13 +64,11 @@ function Calendar() {
   const [userState, setUserState] = useState({});
 
   function handleBtnClick(e) {
-    // console.log(event.target.id);
+    console.log(e.target.id);
     const { id } = e.target;
     setUserState({ ...userState, id: id });
 
-    API.addEvent({
-      accepted_event: userState.id,
-    }).catch((err) => console.log(err));
+    API.addEvent(e.target.id).catch((err) => console.log(err));
   }
 
   return (
