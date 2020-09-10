@@ -10,16 +10,12 @@ function EventData({
   title,
   description,
   location,
-  id,
+  eventId,
   user,
   handleBtnClick,
 }) {
   function confirmEvent(e) {
     console.log(e.target.id);
-
-    // console.log("confirming event", id);
-
-    //post to server with event and user id. user id might be on server in cookie
   }
 
   return (
@@ -31,11 +27,11 @@ function EventData({
         end={end}
         description={description}
         location={location}
-        id={id}
+        eventId={eventId}
         user={user}
       />
       <ResponseBtns
-        id={id}
+        eventId={eventId}
         doConfirm={confirmEvent}
         handleBtnClick={handleBtnClick}
       />

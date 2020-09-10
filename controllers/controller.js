@@ -10,7 +10,9 @@ module.exports = {
   },
 
   addEvent: function (req, res) {
-    console.log(req.body.id);
+    console.log("event id: " + req.body.id);
+    console.log("user id: " + req.user._id);
+
     db.User.updateOne(
       { _id: { _id: req.user._id } },
       { $push: { accepted_events: req.body.id } }
@@ -22,4 +24,10 @@ module.exports = {
         res.json(err);
       });
   },
+
+  // findById: function (req, res) {
+  //   db.User.findById(req.params.id)
+  //     .then((dbModel) => res.json(dbModel))
+  //     .catch((err) => res.status(422).json(err));
+  // },
 };

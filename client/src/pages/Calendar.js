@@ -61,13 +61,10 @@ function Calendar() {
     gapi.load("client", start);
   };
 
-  const [userState, setUserState] = useState({});
-
   function handleBtnClick(e) {
     console.log(e.target.id);
     // const { id } = e.target;
     // setUserState({ ...userState, id: id });
-
     API.addEvent({ id: e.target.id }).catch((err) => console.log(err));
   }
 
@@ -84,7 +81,7 @@ function Calendar() {
             description={event.description}
             location={event.location}
             key={event.id}
-            id={event.id}
+            eventId={event.id}
             user={window.location.pathname}
             handleBtnClick={handleBtnClick}
           />
