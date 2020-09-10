@@ -65,8 +65,8 @@ function Calendar() {
 
   function handleBtnClick(e) {
     console.log(e.target.id);
-    const { id } = e.target;
-    setUserState({ ...userState, id: id });
+    // const { id } = e.target;
+    // setUserState({ ...userState, id: id });
 
     API.addEvent(e.target.id).catch((err) => console.log(err));
   }
