@@ -18,12 +18,12 @@ function Calendar() {
     getEvents();
   }, []);
 
-  const handleButton = (e) =>{
+  const handleBtnClick = (e) =>{
     //get the user with mongodb user you have 
     // let button = event.target
-    API.addEvent({
-      id: e.target.id
-    })
+    API.addEvent(
+      e.target.id
+    )
   }
 
   const getEvents = () => {
@@ -68,15 +68,15 @@ function Calendar() {
     gapi.load("client", start);
   };
 
-  const [userState, setUserState] = useState({});
+  // const [userState, setUserState] = useState({});
 
-  function handleBtnClick(e) {
-    console.log(e.target.id);
-    const { id } = e.target;
-    setUserState({ ...userState, id: id });
+  // function handleBtnClick(e) {
+  //   console.log(e.target.id);
+  //   const { id } = e.target;
+  //   setUserState({ ...userState, id: id });
 
-    API.addEvent(e.target.id).catch((err) => console.log(err));
-  }
+  //   API.addEvent(e.target.id).catch((err) => console.log(err));
+  // }
 
   return (
     <>
@@ -92,6 +92,7 @@ function Calendar() {
             location={event.location}
             key={event.id}
             id={event.id}
+            user={window.location.pathname}
             handleBtnClick={handleBtnClick}
           />
         );
