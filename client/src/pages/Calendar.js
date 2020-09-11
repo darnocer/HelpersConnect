@@ -1,6 +1,7 @@
 /* global gapi */
 
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import moment from "moment";
@@ -60,6 +61,15 @@ function Calendar() {
     //once getEvents is called, it will initially load the client and the function start() will be called
     gapi.load("client", start);
   };
+
+  const [userData, setUserData] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    API.getUser(id)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   function handleBtnClick(e) {
     console.log(e.target.id);

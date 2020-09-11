@@ -5,6 +5,6 @@ router.route("/").get(controller.findAllEvents);
 
 router.route("/api/events/:id").put(controller.addEvent);
 
-// router.route("/:id").get(controller.findById);
+router.route("/api/users/:id").get(controller.findById);
 
 module.exports = router;
