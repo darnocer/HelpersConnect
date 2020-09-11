@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/events");
 const keys = require("./config/keys");
+const path = require("path");
 
 require("./services/passport");
 
@@ -31,7 +32,12 @@ app.use(express.json());
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/volunteercalendar",
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
 );
 
 require("./routes/authRoutes")(app);
@@ -39,11 +45,12 @@ app.use(routes);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
-  );
+  app.use(express.static("client/build"));
 }
+
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+);
 
 const PORT = process.env.PORT || 3001;
 

@@ -21,7 +21,7 @@ function UserData(props) {
           <Row>
             <Col xs={3}>
               <img
-                src="https://via.placeholder.com/150"
+                src={props.picture}
                 alt="user profile pic"
                 className="img-fluid rounded-circle"
               />
@@ -31,7 +31,7 @@ function UserData(props) {
                 <h2>
                   Welcome,{" "}
                   <b>
-                    <span id="userEmail">email@email.com</span>
+                    <span id="userEmail">{props.email}</span>
                   </b>
                   !
                 </h2>
