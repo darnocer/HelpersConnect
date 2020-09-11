@@ -20,6 +20,7 @@
 .env.production.local
 
 /unused
+README_.md
 deployment.md
 
 npm-debug.log*
