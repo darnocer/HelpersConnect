@@ -10,11 +10,25 @@ const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 function Calendar({ userData }) {
   //setup useState to equal events and have a function that can change the state of events
   const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
+
+  useEffect(() => {
+    const newFilteredEvents = events.filter((event) =>
+      event.summary.toLowerCase().includes(filter)
+    );
+    setFilteredEvents(newFilteredEvents);
+  }, [filter]);
+
+  const handleInputChange = (event) => {
+    // grabs search value entered in input field
+    setFilter(event.target.value);
+  };
 
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
@@ -47,6 +61,7 @@ function Calendar({ userData }) {
 
             //setEvents redefines events to equal the array res
             setEvents(res);
+            setFilteredEvents(res);
           },
           //this is a fail safe in case start() does not run
           function (reason) {
@@ -58,27 +73,11 @@ function Calendar({ userData }) {
     gapi.load("client", start);
   };
 
-  // filter is working when you type in the input, but does not "unfilter" when you backspace
-
-  const [filter, setFilter] = useState("");
-
-  const handleInputChange = (event) => {
-    // grabs search value entered in input field
-    setFilter(event.target.value);
-  };
-
-  useEffect(() => {
-    const filteredEvents = events.filter((event) =>
-      event.summary.toLowerCase().includes(filter)
-    );
-    setEvents(filteredEvents);
-  }, [filter]);
-
   return (
     <>
       <CalHeader />
       <Search handleInputChange={handleInputChange} />
-      {events.map((event) => {
+      {filteredEvents.map((event) => {
         return (
           <EventCard
             title={event.summary}

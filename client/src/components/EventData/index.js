@@ -17,21 +17,25 @@ function EventData({
   const [accept, setAccept] = useState(false);
 
   useEffect(() => {
-    eventAccepted();
-  });
-
-  function eventAccepted() {
     const eventsArr = userData.accepted_events;
     if (eventsArr.includes(eventId)) {
-      return true;
+      setAccept(true);
+    } else {
+      setAccept(false);
     }
-    return false;
-  }
+  }, []);
 
   const handleBtnClick = (e) => {
-    API.addEvent({
-      id: e.target.id,
-    }).then(() => setAccept(eventAccepted()));
+    if (accept) {
+      setAccept(!accept);
+    } else {
+      API.addEvent({
+        id: e.target.id,
+      }).then(() => {
+        userData.accepted_events.push(eventId);
+        setAccept(!accept);
+      });
+    }
   };
 
   return (
@@ -49,7 +53,7 @@ function EventData({
       <ResponseBtns
         eventId={eventId}
         handleBtnClick={handleBtnClick}
-        accepted={eventAccepted}
+        accepted={accept}
       />
     </div>
   );
