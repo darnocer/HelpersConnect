@@ -14,11 +14,11 @@ function EventData({
   user,
   userData,
 }) {
-  const [accept, setAccept] = useState([]);
+  const [accept, setAccept] = useState(false);
 
   useEffect(() => {
     eventAccepted();
-  }, []);
+  });
 
   function eventAccepted() {
     const eventsArr = userData.accepted_events;

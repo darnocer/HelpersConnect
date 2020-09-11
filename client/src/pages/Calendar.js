@@ -58,6 +58,8 @@ function Calendar({ userData }) {
     gapi.load("client", start);
   };
 
+  // filter is working when you type in the input, but does not "unfilter" when you backspace
+
   const [filter, setFilter] = useState("");
 
   const handleInputChange = (event) => {
