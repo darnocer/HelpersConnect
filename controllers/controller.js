@@ -30,4 +30,18 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
+  deleteEvent: function (req, res) {
+    console.log(req.body);
+    db.User.updateOne(
+      { _id: { _id: req.user._id } },
+      { $pull: { accepted_events: req.body.id } }
+    )
+      .then((dbModel) => {
+        res.json(dbModel);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
 };
