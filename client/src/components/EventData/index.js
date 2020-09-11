@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Date from "../Date";
 import EventDetails from "../EventDetails";
 import ResponseBtns from "../ResponseBtns";

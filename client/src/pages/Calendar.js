@@ -1,7 +1,6 @@
 /* global gapi */
 
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import moment from "moment";
@@ -14,10 +13,17 @@ function Calendar() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    console.log("mounted");
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
+
+  const handleBtnClick = (e) => {
+    //get the user with mongodb user you have
+    // let button = event.target
+    API.addEvent({
+      id: e.target.id,
+    });
+  };
 
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
@@ -47,7 +53,6 @@ function Calendar() {
             res = res.sort((a, b) => {
               return a.end.dateTime.localeCompare(b.end.dateTime);
             });
-            console.log(res);
 
             //setEvents redefines events to equal the array res
             setEvents(res);
@@ -61,20 +66,6 @@ function Calendar() {
     //once getEvents is called, it will initially load the client and the function start() will be called
     gapi.load("client", start);
   };
-
-  const [userData, setUserData] = useState({});
-  const { id } = useParams();
-
-  useEffect(() => {
-    API.getUser(id)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, []);
-
-  function handleBtnClick(e) {
-    console.log(e.target.id);
-    API.addEvent({ id: e.target.id }).catch((err) => console.log(err));
-  }
 
   return (
     <>

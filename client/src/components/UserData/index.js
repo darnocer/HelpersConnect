@@ -13,7 +13,7 @@ const Typography = styled.div`
   }
 `;
 
-function UserData() {
+function UserData(props) {
   return (
     <div className="columns is-centered mt-5">
       <div className="column is-two-thirds">
