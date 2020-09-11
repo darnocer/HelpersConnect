@@ -13,6 +13,7 @@ function App() {
       <Wrapper>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/:id" component={Calendar} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="*" component={Calendar} />
