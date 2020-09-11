@@ -25,11 +25,12 @@ const Confirmation = styled.div`
 `;
 
 function ResponseBtns(props) {
+  console.log(props.accepted());
   return (
     <div className="col-2">
       <div className="has-text-centered mt-4">
         <Buttons>
-          {props.accepted ? (
+          {props.accepted() === true ? (
             <button className="button decline">
               <i className="far fa-calendar-times"></i>
             </button>
@@ -44,7 +45,7 @@ function ResponseBtns(props) {
         </Buttons>
         <br></br>
         <Confirmation>
-          {props.accepted ? <span>You're going!</span> : null}
+          {props.accepted() === true ? <span>You're going!</span> : null}
         </Confirmation>
       </div>
     </div>

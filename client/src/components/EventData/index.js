@@ -12,9 +12,14 @@ function EventData({
   eventId,
   user,
   handleBtnClick,
+  userData,
 }) {
-  function confirmEvent(e) {
-    console.log(e.target.id);
+  function eventAccepted() {
+    const eventsArr = userData.accepted_events;
+    if (eventsArr.includes(eventId)) {
+      return true;
+    }
+    return false;
   }
 
   return (
@@ -31,8 +36,8 @@ function EventData({
       />
       <ResponseBtns
         eventId={eventId}
-        doConfirm={confirmEvent}
         handleBtnClick={handleBtnClick}
+        accepted={eventAccepted}
       />
     </div>
   );
