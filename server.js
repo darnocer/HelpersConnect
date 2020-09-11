@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const routes = require("./routes/events");
 const keys = require("./config/keys");
+const path = require("path");
 
 require("./services/passport");
 
