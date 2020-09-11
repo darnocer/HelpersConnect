@@ -25,7 +25,6 @@ const Confirmation = styled.div`
 `;
 
 function ResponseBtns(props) {
-  console.log(props.accepted());
   return (
     <div className="col-2">
       <div className="has-text-centered mt-4">
