@@ -1,30 +1,34 @@
 /* global gapi */
-
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
+import Search from "../components/Search";
 import moment from "moment";
-import API from "../utils/API";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
-function Calendar() {
+function Calendar({ userData }) {
   //setup useState to equal events and have a function that can change the state of events
   const [events, setEvents] = useState([]);
-  const [user, setUser] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
 
-  const handleBtnClick = (e) =>{
-    //get the user with mongodb user you have 
-    // let button = event.target
-    API.addEvent({
-      id: e.target.id
-    })
-  }
+  useEffect(() => {
+    const newFilteredEvents = events.filter((event) =>
+      event.summary.toLowerCase().includes(filter)
+    );
+    setFilteredEvents(newFilteredEvents);
+  }, [filter]);
+
+  const handleInputChange = (event) => {
+    // grabs search value entered in input field
+    setFilter(event.target.value);
+  };
 
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
@@ -57,6 +61,7 @@ function Calendar() {
 
             //setEvents redefines events to equal the array res
             setEvents(res);
+            setFilteredEvents(res);
           },
           //this is a fail safe in case start() does not run
           function (reason) {
@@ -68,21 +73,11 @@ function Calendar() {
     gapi.load("client", start);
   };
 
-  // const [userState, setUserState] = useState({});
-
-  // function handleBtnClick(e) {
-  //   console.log(e.target.id);
-  //   const { id } = e.target;
-  //   setUserState({ ...userState, id: id });
-
-  //   API.addEvent(e.target.id).catch((err) => console.log(err));
-  // }
-
   return (
     <>
       <CalHeader />
-      {/* <Search handleInputChange={this.handleInputChange} /> */}
-      {events.map((event) => {
+      <Search handleInputChange={handleInputChange} />
+      {filteredEvents.map((event) => {
         return (
           <EventCard
             title={event.summary}
@@ -91,9 +86,9 @@ function Calendar() {
             description={event.description}
             location={event.location}
             key={event.id}
-            id={event.id}
+            eventId={event.id}
             user={window.location.pathname}
-            handleBtnClick={handleBtnClick}
+            userData={userData}
           />
         );
       })}

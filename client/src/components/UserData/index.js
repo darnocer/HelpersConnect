@@ -13,7 +13,7 @@ const Typography = styled.div`
   }
 `;
 
-function UserData() {
+function UserData({ email, picture, eventCnt }) {
   return (
     <div className="columns is-centered mt-5">
       <div className="column is-two-thirds">
@@ -21,7 +21,7 @@ function UserData() {
           <Row>
             <Col xs={3}>
               <img
-                src="https://via.placeholder.com/150"
+                src={picture}
                 alt="user profile pic"
                 className="img-fluid rounded-circle"
               />
@@ -31,14 +31,14 @@ function UserData() {
                 <h2>
                   Welcome,{" "}
                   <b>
-                    <span id="userEmail">email@email.com</span>
+                    <span id="userEmail">{email}</span>
                   </b>
                   !
                 </h2>
                 <h3>
                   You are attending{" "}
                   <b>
-                    <span id="eventCount">X</span>
+                    <span id="eventCount">{eventCnt()}</span>
                   </b>{" "}
                   events.
                 </h3>
