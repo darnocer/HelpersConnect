@@ -18,6 +18,19 @@ function Calendar() {
     getEvents();
   }, []);
 
+
+  const getUser = (() => {
+    console.log("userrrrrrr")
+    let path = window.location.pathname.replace(/\/+$/, '');
+    path = path[0] == '/' ? path.substr(1) : path;
+    API.getUser({userId: path})
+  });
+
+  // useEffect(() => {
+  //   let user = path;
+  //   setUser
+  // })
+
   const handleBtnClick = (e) =>{
     //get the user with mongodb user you have 
     // let button = event.target
@@ -29,6 +42,7 @@ function Calendar() {
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
     function start() {
+      getUser()
       gapi.client
         .init({
           apiKey: GOOGLE_API_KEY,

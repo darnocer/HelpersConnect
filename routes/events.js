@@ -7,4 +7,10 @@ router.route("/")
 
 router.route('/api/events/:id')
   .put(controller.addEvent)
+
+router.route('/api/events/:id')
+  .delete(controller.deleteEvent)
+
+router.route('/api/user/:userId')
+  .get(controller.getUser)
 module.exports = router;
