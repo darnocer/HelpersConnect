@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Date from "../Date";
 import EventDetails from "../EventDetails";
 import ResponseBtns from "../ResponseBtns";
+import API from "../../utils/API";
 
 function EventData({
   start,
@@ -11,9 +12,14 @@ function EventData({
   location,
   eventId,
   user,
-  handleBtnClick,
   userData,
 }) {
+  const [accept, setAccept] = useState([]);
+
+  useEffect(() => {
+    eventAccepted();
+  }, []);
+
   function eventAccepted() {
     const eventsArr = userData.accepted_events;
     if (eventsArr.includes(eventId)) {
@@ -21,6 +27,12 @@ function EventData({
     }
     return false;
   }
+
+  const handleBtnClick = (e) => {
+    API.addEvent({
+      id: e.target.id,
+    }).then(() => setAccept(eventAccepted()));
+  };
 
   return (
     <div className="row">

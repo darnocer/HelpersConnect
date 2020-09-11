@@ -35,13 +35,13 @@ function UserData({ email, picture, eventCnt }) {
                   </b>
                   !
                 </h2>
-                {/* <h3>
+                <h3>
                   You are attending{" "}
                   <b>
-                    <span id="eventCount">{() => eventCnt()}</span>
+                    <span id="eventCount">{eventCnt()}</span>
                   </b>{" "}
                   events.
-                </h3> */}
+                </h3>
                 <br></br>
                 <br></br>
                 <a href="#">Sign Out</a>

@@ -1,10 +1,9 @@
 /* global gapi */
-
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
+import Search from "../components/Search";
 import moment from "moment";
-import API from "../utils/API";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -16,14 +15,6 @@ function Calendar({ userData }) {
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
-
-  const handleBtnClick = (e) => {
-    //get the user with mongodb user you have
-    // let button = event.target
-    API.addEvent({
-      id: e.target.id,
-    });
-  };
 
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
@@ -67,10 +58,24 @@ function Calendar({ userData }) {
     gapi.load("client", start);
   };
 
+  const [filter, setFilter] = useState("");
+
+  const handleInputChange = (event) => {
+    // grabs search value entered in input field
+    setFilter(event.target.value);
+  };
+
+  useEffect(() => {
+    const filteredEvents = events.filter((event) =>
+      event.summary.toLowerCase().includes(filter)
+    );
+    setEvents(filteredEvents);
+  }, [filter]);
+
   return (
     <>
       <CalHeader />
-      {/* <Search handleInputChange={this.handleInputChange} /> */}
+      <Search handleInputChange={handleInputChange} />
       {events.map((event) => {
         return (
           <EventCard
@@ -82,7 +87,6 @@ function Calendar({ userData }) {
             key={event.id}
             eventId={event.id}
             user={window.location.pathname}
-            handleBtnClick={handleBtnClick}
             userData={userData}
           />
         );

@@ -10,7 +10,7 @@ function Profile({ userData }) {
     <UserData
       email={userData.email}
       picture={userData.picture}
-      // eventCnt={cntEvents}
+      eventCnt={cntEvents}
     />
   );
 }

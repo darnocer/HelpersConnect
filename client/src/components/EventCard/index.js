@@ -29,7 +29,6 @@ function EventCard({
   location,
   eventId,
   user,
-  handleBtnClick,
   userData,
 }) {
   return (
@@ -45,7 +44,6 @@ function EventCard({
               location={location}
               eventId={eventId}
               user={user}
-              handleBtnClick={handleBtnClick}
               userData={userData}
             />
           </div>

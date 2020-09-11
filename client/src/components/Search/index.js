@@ -14,7 +14,7 @@ function Search({ handleInputChange }) {
   return (
     <Searchbar>
       <div className="columns is-centered mt-5">
-        <div className="column is-two-thirds">
+        <div className="column is-half">
           <form className="form-inline input-group p-2 searchbar">
             <input
               className="form-control"
