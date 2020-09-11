@@ -1,0 +1,20 @@
+/* event title  */
+.event-name {
+  color: var(--primary-color);
+}
+
+/* color icons (only for day of week, time, and location) */
+li > i {
+  color: var(--primary-color);
+}
+
+/* remove column padding  */
+.col-8 {
+  padding-right: 0;
+  min-width: 66%;
+}
+
+.location {
+  color: grey;
+  font-size: 0.8em;
+}
