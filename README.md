@@ -1,70 +1,152 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Volunteer Calendar
 
-## Available Scripts
+![last commit](https://img.shields.io/github/last-commit/darnocer/project-03-volunteer-calendar?style=flat-square)
 
-In the project directory, you can run:
+### Deployed App: https://project-03-volunteer-calendar.herokuapp.com/
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+An application for community service-based organizations to manage events and volunteers.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![calendar](client/public/images/demo.gif)
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Features](#features)
+- [Installation](#installation)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [Future Enhancements](#future-enhancements)
+- [Credits](#Credits)
+- [Contributors](#contributors)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- One Admin can control the events that appear directly from a Google Calendar
+- Mobile-responsive design
+- Volunteers can mark if they are attending the event
+- Search and filter through events
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Cloning repo
 
-### `npm run eject`
+> 1. Fork repo
+> 2. Clone to local machine
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Initial Setup (proxy for development/testing locally)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> 3. `npm i` to install packages
+> 4. Uncomment out the code in `/client/src/setupProxy.js`
+> 5. Add `"proxy": "http://localhost:3001",` to `/client/package.json`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### OAuth
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> 6. Setup OAuth app on in Google
+> 7. Set HomepageURL to http://localhost:3000
+> 8. Set Authorization callback URL to http://localhost:3000/auth/github/callback
+> 9. Update client id and client secret from OAuth app in in `config/keys.js`
 
-## Learn More
+#### Google Calendar Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> 10. Create a public Google Calendar that will be used solely to display organization events
+> 11. In `client/src/pages/Calendar.js` update the email in `getEvents()` to be your Google account
+>
+> ```
+> return gapi.client.request({
+> path: `https://www.googleapis.com/calendar/v3/calendars/prettyawesomepractice007@gmail.com/events?singleEvents=true`,
+> });
+> ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### MongoDB
 
-### Code Splitting
+> 12. Robo3T or another MongoDB GUI a prerequsite for this application
+> 13. Can run `npm run seed` to seed the database
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Running app
 
-### Analyzing the Bundle Size
+> 14. `npm start`
+> 15. Navigate to http://localhost:3000/auth/google
+> 16. Enter Google credentials to authenticate
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### Validation
 
-### Making a Progressive Web App
+> 17. Verify a string of letter and numbers appear in the URL
+> 18. Validate the user information is available in the `user` collection in the database
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Optional Styling
 
-### Advanced Configuration
+> 19. In `/client/src/index.css` can update the primary and accent hex codes:
+>
+> ```
+> :root {
+>  --primary-color: #04244c;
+>  --accent-color: #ffcb05;
+> }
+> ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Deployment
 
-### Deployment
+_Deployment instructions coming soon_
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Screenshots
 
-### `npm run build` fails to minify
+- Authenticate through Github
+- Fill out the form for click "Connect" to make a post visible by others
+- Click the pencil icon to edit the details of your post
+- Click the trashcan icon to delete your post
+- Click "I'm Interested" to track projects you're interested in (currently only populates interested table in db for future dev)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  ![desktop](client/public/images/desktop.png) ![mobile](client/public/images/mobile.png)
 
-# project3
+## Future Enhancements
+
+- Convert template to use content management system
+- View only for unauthenticated users + sign in link
+- Allow users to create their own login
+- Added security via cookies
+- Remove API key exposure
+- Better handling for "all day" and multi-day events
+- User can decline event
+- Announcements page
+- Admin Backend
+- Better mobile-responsiveness
+- Convert to React Native
+- Convert to PWA
+- Push Notifications
+- Sync event to user's calendar
+- Send responses to Admin's calendar
+- See events attending on volunteer profile
+
+## Credits
+
+- [React](https://reactjs.org/)
+
+- [Reactstrap](https://reactstrap.github.io/)
+
+- [Bulma](bulma.io)
+
+- [Bootstrap](https://getbootstrap.com/)
+
+- [styled-components](https://styled-components.com/docs)
+
+- [OAuth for Google](https://developers.google.com/identity/protocols/oauth2)
+
+- [Google Calendar API](https://developers.google.com/calendar)
+
+- [Mongoose](https://mongoosejs.com/)
+
+- [MongoDB](https://www.mongodb.com/)
+
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+- [Express](https://www.npmjs.com/package/express)
+
+## Contributors
+
+- Shannon Kearney [![Follow on Github](https://img.shields.io/github/followers/darnocer?label=Follow&style=social)](https://github.com/shannonthoko)
+- Amanda Morris [![Follow on Github](https://img.shields.io/github/followers/darnocer?label=Follow&style=social)](https://github.com/amandalmorris31)
+- Katie Thorpe [![Follow on Github](https://img.shields.io/github/followers/darnocer?label=Follow&style=social)](https://github.com/kthorpe1023)
+- Darian Nocera [![Follow on Github](https://img.shields.io/github/followers/darnocer?label=Follow&style=social)](http://www.github.com/darnocer)
+
+##### Copyright © 2020
