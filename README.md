@@ -74,7 +74,7 @@ An application for community service-based organizations to manage events and vo
 > 17. Verify a string of letter and numbers appear in the URL
 > 18. Validate the user information is available in the `user` collection in the database
 
-### Optional Styling
+#### Optional Styling
 
 > 19. In `/client/src/index.css` can update the primary and accent hex codes:
 >
