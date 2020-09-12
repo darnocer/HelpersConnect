@@ -91,13 +91,7 @@ _Deployment instructions coming soon_
 
 ## Screenshots
 
-- Authenticate through Github
-- Fill out the form for click "Connect" to make a post visible by others
-- Click the pencil icon to edit the details of your post
-- Click the trashcan icon to delete your post
-- Click "I'm Interested" to track projects you're interested in (currently only populates interested table in db for future dev)
-
-  ![desktop](client/public/images/desktop.png) ![mobile](client/public/images/mobile.png)
+![desktop](client/public/images/desktop.png) ![mobile](client/public/images/mobile.png)
 
 ## Future Enhancements
 
