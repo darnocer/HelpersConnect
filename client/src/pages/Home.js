@@ -1,5 +1,6 @@
 import React from "react";
 import HomeHeader from "../components/HomeHeader";
+import Navbar from "../components/Navbar";
 import Announcements from "../components/Announcements";
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <>
       <HomeHeader />
       <Announcements />
+      <Navbar />
     </>
   );
 }
