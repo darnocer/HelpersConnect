@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import NotFound from "./pages/Error";
-import Navbar from "./components/Navbar";
+
 import Wrapper from "./components/Wrapper";
 import API from "./utils/API";
 
@@ -25,7 +26,8 @@ function App() {
     <Router>
       <Wrapper>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
           <Route
             exact
             path="/profile"
@@ -44,7 +46,6 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Wrapper>
-      <Navbar />
     </Router>
   );
 }

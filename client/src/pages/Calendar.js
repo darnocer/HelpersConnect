@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
 import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
+import Navbar from "../components/Navbar";
 import moment from "moment";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
@@ -92,6 +93,7 @@ function Calendar({ userData }) {
           />
         );
       })}
+      <Navbar />
     </>
   );
 }
