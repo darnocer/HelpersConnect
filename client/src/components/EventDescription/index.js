@@ -41,7 +41,10 @@ class EventDescription extends Component {
                     {this.props.attachments
                       ? this.props.attachments.map((item) => {
                           return (
-                            <a href={item.fileUrl} target="_blank">
+                            <a
+                              href={item.fileUrl}
+                              key={item.fileId}
+                              target="_blank">
                               <i className="fas fa-paperclip"></i>
                             </a>
                           );
@@ -60,7 +63,7 @@ class EventDescription extends Component {
             {this.props.attachments
               ? this.props.attachments.map((item) => {
                   return (
-                    <a href={item.fileUrl} target="_blank">
+                    <a href={item.fileUrl} key={item.fileId} target="_blank">
                       <i className="fas fa-paperclip"></i>
                     </a>
                   );
