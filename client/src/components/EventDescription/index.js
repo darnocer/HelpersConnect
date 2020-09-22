@@ -36,7 +36,18 @@ class EventDescription extends Component {
                 aria-labelledby={`heading${this.props.id}`}
                 data-parent="#accordion">
                 <div className="description card-body">
-                  <p className="description">{this.props.description}</p>
+                  <p className="description">
+                    {this.props.description}
+                    {this.props.attachments
+                      ? this.props.attachments.map((item) => {
+                          return (
+                            <a href={item.fileUrl} target="_blank">
+                              <i className="fas fa-paperclip"></i>
+                            </a>
+                          );
+                        })
+                      : null}
+                  </p>
                 </div>
               </div>
             </div>
@@ -44,7 +55,18 @@ class EventDescription extends Component {
         </div>
 
         <div className="desktop">
-          <p className="description">{this.props.description}</p>
+          <p className="description">
+            {this.props.description}{" "}
+            {this.props.attachments
+              ? this.props.attachments.map((item) => {
+                  return (
+                    <a href={item.fileUrl} target="_blank">
+                      <i className="fas fa-paperclip"></i>
+                    </a>
+                  );
+                })
+              : null}
+          </p>
         </div>
       </>
     );

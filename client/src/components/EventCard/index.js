@@ -30,6 +30,7 @@ function EventCard({
   eventId,
   user,
   userData,
+  attachments,
 }) {
   return (
     <Striped>
@@ -45,6 +46,7 @@ function EventCard({
               eventId={eventId}
               user={user}
               userData={userData}
+              attachments={attachments}
             />
           </div>
         </div>
