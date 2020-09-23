@@ -32,7 +32,7 @@ class EventDescription extends Component {
 
               <div
                 id={`collapse${this.props.eventId}`}
-                className="collapse show details"
+                className="collapse details"
                 aria-labelledby={`heading${this.props.eventId}`}
                 data-parent="#accordion">
                 <div className="description card-body">

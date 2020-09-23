@@ -4,6 +4,12 @@ import styled from "styled-components";
 import moment from "moment";
 
 const Details = styled.div`
+  @media only screen and (max-width: 768px) {
+    .fa-clock {
+      display: none;
+    }
+  }
+
   .event-name {
     color: var(--primary-color);
   }
@@ -38,7 +44,7 @@ function EventDetails(props) {
             </h2>
             <ul className="list-inline">
               <li className="list-inline-item">
-                <i className="far fa-calendar-alt"></i>{" "}
+                {/* <i className="far fa-calendar-alt"></i>{" "} */}
                 <span className="day-of-week">
                   {moment(props.start).format("MMDDYY") ===
                   moment(props.end).format("MMDDYY")
@@ -66,7 +72,7 @@ function EventDetails(props) {
               ) : null}
               <li className="list-item">
                 <i className="fas fa-users"></i>{" "}
-                <span className="attendees">44</span>
+                <span className="attendees">0</span>
               </li>
             </ul>
             {props.description ? (
