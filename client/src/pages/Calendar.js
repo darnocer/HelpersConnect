@@ -61,6 +61,8 @@ function Calendar({ userData }) {
             });
 
             //setEvents redefines events to equal the array res
+            console.log(res);
+
             setEvents(res);
             setFilteredEvents(res);
           },
@@ -85,6 +87,7 @@ function Calendar({ userData }) {
             start={event.start.dateTime}
             end={event.end.dateTime}
             description={event.description}
+            attachments={event.attachments}
             location={event.location}
             key={event.id}
             eventId={event.id}

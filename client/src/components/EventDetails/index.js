@@ -73,6 +73,7 @@ function EventDetails(props) {
               <EventDescription
                 eventId={props.eventId}
                 description={props.description}
+                attachments={props.attachments}
               />
             ) : null}
           </div>

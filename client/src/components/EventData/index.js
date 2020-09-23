@@ -13,6 +13,7 @@ function EventData({
   eventId,
   user,
   userData,
+  attachments,
 }) {
   const [accept, setAccept] = useState(false);
 
@@ -49,6 +50,7 @@ function EventData({
         location={location}
         eventId={eventId}
         user={user}
+        attachments={attachments}
       />
       <ResponseBtns
         eventId={eventId}
