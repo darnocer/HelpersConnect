@@ -13,4 +13,7 @@ router.route('/api/events/:id')
 
 router.route('/api/user/:userId')
   .get(controller.getUser)
+
+router.route('/api/events')
+  .post(controller.sendEvents)
 module.exports = router;

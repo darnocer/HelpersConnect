@@ -7,6 +7,7 @@ const routes = require("./routes/events");
 const keys = require("./config/keys");
 
 require("./services/passport");
+require("./services/calendarApi")
 
 const db = require("./models/index");
 

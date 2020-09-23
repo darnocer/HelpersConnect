@@ -11,7 +11,6 @@ module.exports = {
 
 
     addEvent: function(req, res) {
-        console.log(req.body)
         db.User.updateOne(
           { _id: { _id: req.user._id } }, 
           { $push: { accepted_events: req.body.id } })
@@ -25,7 +24,6 @@ module.exports = {
       },
 
       deleteEvent: function(req, res) {
-        console.log(req.body)
         db.User.updateOne(
           { _id: { _id: req.user._id } }, 
           { $pull: { accepted_events: req.body.id } })
@@ -49,6 +47,26 @@ module.exports = {
             res.json(err)
           })
       
+      },
+
+      sendEvents: function(req,res){
+        console.log(req.body)
+        db.Event.create({
+          event_name: req.body.summary,
+          event_id: req.body.id,
+          date: req.body.startTime,
+          location:req.body.location,
+          startTime:req.body.startTime,
+          endTime: req.body.endTime,
+          attending: ""
+        })
+        .then((dbModel) => {
+          console.log(dbModel)
+          res.json(dbModel)
+        })
+        .catch((err)=> {
+          res.json(err)
+        })
       }
 
   };

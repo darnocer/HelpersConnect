@@ -20,16 +20,11 @@ function Calendar() {
 
 
   const getUser = (() => {
-    console.log("userrrrrrr")
     let path = window.location.pathname.replace(/\/+$/, '');
     path = path[0] == '/' ? path.substr(1) : path;
     API.getUser({userId: path})
   });
 
-  // useEffect(() => {
-  //   let user = path;
-  //   setUser
-  // })
 
   const handleBtnClick = (e) =>{
     //get the user with mongodb user you have 
@@ -62,15 +57,33 @@ function Calendar() {
             //define a variable res that only pulls the events from the response
 
             let res = response.result.items;
+             const sendData = () =>{
+               res.map((res)=>{
+               API.sendEvents({
+              event_name: res.summary,
+              event_id: res.id,
+              date: res.start.dateTime,
+              location:res.location,
+              startTime:res.start.dateTime,
+              endTime: res.end.dateTime,
+              attending: ""
+            })
+          })
+          }
+          sendData()
             res = res.filter((event) => {
+
               return event.end.dateTime >= moment().format();
+              
             });
             res = res.sort((a, b) => {
               return a.end.dateTime.localeCompare(b.end.dateTime);
             });
 
+
             //setEvents redefines events to equal the array res
             setEvents(res);
+
           },
           //this is a fail safe in case start() does not run
           function (reason) {
