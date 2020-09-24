@@ -51,11 +51,14 @@ function Calendar({ userData }) {
         .then(
           (response) => {
             //define a variable res that only pulls the events from the response
+            console.log(response);
 
             let res = response.result.items;
+
             res = res.filter((event) => {
               return event.end.dateTime >= moment().format();
             });
+
             res = res.sort((a, b) => {
               return a.end.dateTime.localeCompare(b.end.dateTime);
             });

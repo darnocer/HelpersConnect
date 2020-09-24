@@ -18,7 +18,7 @@ const Buttons = styled.div`
   }
 
   .rsvp {
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-weight: bold;
   }
 
