@@ -19,7 +19,7 @@ function Calendar({ userData }) {
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
-  
+
   useEffect(() => {
     const newFilteredEvents = events.filter((event) =>
       event.summary.toLowerCase().includes(filter)
@@ -69,19 +69,20 @@ function Calendar({ userData }) {
         .then(
           (response) => {
             //define a variable res that only pulls the events from the response
-
+            let data= []
             let res = response.result.items;
+            data.push(res)
              const sendData = () =>{
-               res.map((res)=>{
+               res.map((data)=>{
                API.sendEvents({
-              event_name: res.summary,
-              event_id: res.id,
-              date: res.start.dateTime,
-              location:res.location,
-              startTime:res.start.dateTime,
-              endTime: res.end.dateTime,
+              event_name: data.summary,
+              event_id: data.id,
+              date: data.start.dateTime,
+              location:data.location,
+              startTime:data.start.dateTime,
+              endTime: data.end.dateTime,
               attending: ""
-            })
+               })
           })
           }
           sendData()

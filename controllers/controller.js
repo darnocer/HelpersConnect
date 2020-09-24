@@ -50,18 +50,22 @@ module.exports = {
       },
 
       sendEvents: function(req,res){
-        console.log(req.body)
-        db.Event.create({
-          event_name: req.body.summary,
-          event_id: req.body.id,
-          date: req.body.startTime,
-          location:req.body.location,
-          startTime:req.body.startTime,
-          endTime: req.body.endTime,
-          attending: ""
-        })
+        // console.log(req.body)
+        let data = []
+        data.push(req.body)
+        console.log(data)
+
+        db.Event.collection.insertMany(data
+          // event_name: req.body.summary,
+          // event_id: req.body.id,
+          // date: req.body.startTime,
+          // location:req.body.location,
+          // startTime:req.body.startTime,
+          // endTime: req.body.endTime,
+          // attending: ""
+          )
         .then((dbModel) => {
-          console.log(dbModel)
+          console.log("bloop", dbModel)
           res.json(dbModel)
         })
         .catch((err)=> {
