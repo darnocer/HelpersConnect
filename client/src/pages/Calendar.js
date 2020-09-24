@@ -5,6 +5,7 @@ import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 import moment from "moment";
+import API from "../utils/API"
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -18,6 +19,18 @@ function Calendar({ userData }) {
     //call getEvents function to pull calendar data
     getEvents();
   }, []);
+  
+  useEffect(() => {
+    const newFilteredEvents = events.filter((event) =>
+      event.summary.toLowerCase().includes(filter)
+    );
+    setFilteredEvents(newFilteredEvents);
+  }, [filter]);
+
+  const handleInputChange = (event) => {
+    // grabs search value entered in input field
+    setFilter(event.target.value);
+  };
 
 
   const getUser = (() => {

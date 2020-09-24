@@ -23,19 +23,6 @@ module.exports = {
       });
   },
 
-    addEvent: function(req, res) {
-        db.User.updateOne(
-          { _id: { _id: req.user._id } }, 
-          { $push: { accepted_events: req.body.id } })
-        .then((dbModel) => {
-          res.json(dbModel);
-        })
-        .catch((err) => {
-          res.json(err);
-        });
-
-      },
-
       deleteEvent: function(req, res) {
         db.User.updateOne(
           { _id: { _id: req.user._id } }, 
