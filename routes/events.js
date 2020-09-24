@@ -8,4 +8,15 @@ router.route("/api/events/:id").put(controller.addEvent);
 
 router.route("/api/user/:userId").get(controller.getUser);
 
+router.route('/api/events/:id')
+  .put(controller.addEvent)
+
+router.route('/api/events/:id')
+  .delete(controller.deleteEvent)
+
+router.route('/api/user/:userId')
+  .get(controller.getUser)
+
+router.route('/api/events')
+  .post(controller.sendEvents)
 module.exports = router;
