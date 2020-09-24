@@ -40,7 +40,7 @@ passport.use(
       }).save();
       userID = user._id;
       done(null, user);
-      console.log(profile);
+      // console.log(profile);
     }
   )
 );

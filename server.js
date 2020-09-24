@@ -8,6 +8,7 @@ const keys = require("./config/keys");
 const path = require("path");
 
 require("./services/passport");
+require("./services/calendarApi")
 
 const db = require("./models/index");
 

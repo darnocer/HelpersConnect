@@ -5,6 +5,7 @@ import CalHeader from "../components/CalHeader";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 import moment from "moment";
+import API from "../utils/API";
 
 const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
@@ -31,9 +32,24 @@ function Calendar({ userData }) {
     setFilter(event.target.value);
   };
 
+  const getUser = () => {
+    let path = window.location.pathname.replace(/\/+$/, "");
+    path = path[0] == "/" ? path.substr(1) : path;
+    API.getUser({ userId: path });
+  };
+
+  const handleBtnClick = (e) => {
+    //get the user with mongodb user you have
+    // let button = event.target
+    API.addEvent({
+      id: e.target.id,
+    });
+  };
+
   const getEvents = () => {
     //this function is called on page load--ie gapi.load('client', START)
     function start() {
+      getUser();
       gapi.client
         .init({
           apiKey: GOOGLE_API_KEY,
@@ -51,10 +67,23 @@ function Calendar({ userData }) {
         .then(
           (response) => {
             //define a variable res that only pulls the events from the response
-            console.log(response);
-
+            let data = [];
             let res = response.result.items;
-
+            data.push(res);
+            const sendData = () => {
+              res.map((data) => {
+                API.sendEvents({
+                  event_name: data.summary,
+                  event_id: data.id,
+                  date: data.start.dateTime,
+                  location: data.location,
+                  startTime: data.start.dateTime,
+                  endTime: data.end.dateTime,
+                  attending: "",
+                });
+              });
+            };
+            sendData();
             res = res.filter((event) => {
               return event.end.dateTime >= moment().format();
             });
