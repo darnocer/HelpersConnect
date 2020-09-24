@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
 //easier to write a function for this--prepare the request to be sent to controller

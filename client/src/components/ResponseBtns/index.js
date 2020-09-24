@@ -29,24 +29,22 @@ function ResponseBtns(props) {
     <div className="col-2">
       <div className="has-text-centered mt-4">
         <Buttons>
-          {props.accepted ? (
+          {props.accepted === true ? (
             <button className="button decline">
               <i className="far fa-calendar-times"></i>
             </button>
           ) : (
             <button
               className="button accept"
-              id={props.id}
-              // onClick={() => props.doConfirm(props.eventId)}>
-              // onClick={(e) => props.doConfirm(e)}>
+              id={props.eventId}
               onClick={props.handleBtnClick}>
-              <i className="far fa-calendar-check" id={props.id}></i>
+              <i className="far fa-calendar-check" id={props.eventId}></i>
             </button>
           )}
         </Buttons>
         <br></br>
         <Confirmation>
-          {props.accepted ? <span>You're going!</span> : null}
+          {props.accepted === true ? <span>You're going!</span> : null}
         </Confirmation>
       </div>
     </div>

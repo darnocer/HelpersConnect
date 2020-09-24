@@ -11,8 +11,8 @@ const userSchema = new Schema({
   accepted_events: [
     {
       type: String,
-    }
-  ]
+    },
+  ],
 });
 
 const User = mongoose.model("users", userSchema);

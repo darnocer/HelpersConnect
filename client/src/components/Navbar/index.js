@@ -9,7 +9,7 @@ function Navbar() {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link
-              to="/"
+              to="/home"
               className={
                 window.location.pathname === "/" ||
                 window.location.pathname === "/home"

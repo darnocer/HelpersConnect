@@ -9,6 +9,19 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
 
+  addEvent: function (req, res) {
+    console.log(req.body);
+    db.User.updateOne(
+      { _id: { _id: req.user._id } },
+      { $push: { accepted_events: req.body.id } }
+    )
+      .then((dbModel) => {
+        res.json(dbModel);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  },
 
     addEvent: function(req, res) {
         db.User.updateOne(

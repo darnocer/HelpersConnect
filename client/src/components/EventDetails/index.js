@@ -70,7 +70,11 @@ function EventDetails(props) {
               </li>
             </ul>
             {props.description ? (
-              <EventDescription id={props.id} description={props.description} />
+              <EventDescription
+                eventId={props.eventId}
+                description={props.description}
+                attachments={props.attachments}
+              />
             ) : null}
           </div>
         </Details>
