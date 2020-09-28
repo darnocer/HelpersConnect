@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 import moment from "moment";
 import API from "../utils/API";
 
-const GOOGLE_API_KEY = process.env.API_KEY;
+const GOOGLE_API_KEY = "AIzaSyAtHz02Yzb-TGWflfO9YLXH7pwXX_oKDEQ";
 
 function Calendar({ userData }) {
   //setup useState to equal events and have a function that can change the state of events
