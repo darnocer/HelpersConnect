@@ -8,7 +8,6 @@ const keys = require("./config/keys");
 const path = require("path");
 
 require("./services/passport");
-require("./services/calendarApi")
 
 const db = require("./models/index");
 
@@ -43,7 +42,6 @@ mongoose.connect(
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-
   // app.use(express.static(path.join(__dirname, "client", "build")));
   app.use(express.static("client/build"));
 }
