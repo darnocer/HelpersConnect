@@ -1,8 +1,8 @@
-# Volunteer Calendar
+# HelpersConnect
 
 ![last commit](https://img.shields.io/github/last-commit/darnocer/project-03-volunteer-calendar?style=flat-square)
 
-### Deployed App: https://project-03-volunteer-calendar.herokuapp.com/
+### Deployed App: https://helpers-connect.herokuapp.com/
 
 ## Description
 
@@ -23,6 +23,7 @@ An application for community service-based organizations to manage events and vo
 ## Features
 
 - One Admin can control the events that appear directly from a Google Calendar
+- Attendees are tracked using their Google accounts
 - Mobile-responsive design
 - Volunteers can mark if they are attending the event
 - Search and filter through events
@@ -97,10 +98,9 @@ _Deployment instructions coming soon_
 
 - Convert template to use content management system
 - View only for unauthenticated users + sign in link
-- Allow users to create their own login
 - Added security via cookies
 - Remove API key exposure
-- Better handling for "all day" and multi-day events
+- Better handling for "all day" events
 - User can decline event
 - Announcements page
 - Admin Backend
