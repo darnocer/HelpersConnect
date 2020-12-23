@@ -18,6 +18,7 @@ function LoginForm() {
                       className="form-control"
                       placeholder="Email address"
                       //   required
+                      disabled
                       autofocus
                     />
                     <label for="inputEmail">Email address</label>
@@ -29,6 +30,8 @@ function LoginForm() {
                       id="inputPassword"
                       className="form-control"
                       placeholder="Password"
+                      disabled
+
                       //   required
                     />
                     <label for="inputPassword">Password</label>
@@ -39,6 +42,7 @@ function LoginForm() {
                       type="checkbox"
                       className="custom-control-input"
                       id="customCheck1"
+                      disabled
                     />
                     <label className="custom-control-label" for="customCheck1">
                       Remember password
@@ -46,7 +50,8 @@ function LoginForm() {
                   </div>
                   <button
                     className="btn btn-lg btn-primary btn-block text-uppercase"
-                    type="submit">
+                    type="submit"
+                    disabled>
                     Sign in
                   </button>
                   <hr className="my-4" />
@@ -56,6 +61,13 @@ function LoginForm() {
                     type="submit">
                     <i className="fab fa-google mr-2"></i> Sign in with Google
                   </a>
+                  <p class="demo">
+                    Sign in with Google or click{" "}
+                    <a href="/5f6e0acb9c843d51f0334b9f" alt="link to demo">
+                      here
+                    </a>{" "}
+                    to continue with demo
+                  </p>
                 </form>
               </div>
             </div>
