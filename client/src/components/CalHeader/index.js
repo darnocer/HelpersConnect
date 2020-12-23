@@ -12,18 +12,18 @@ const Heading = styled.header`
     border-top: 2px solid var(--accent-color);
   }
 
-  header h1 {
-    color: var(--primary-color);
+  .logo-holder {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
   }
 `;
 
 function CalHeader() {
   return (
     <Heading>
-      <header className="my-4">
-        <h1 className="title is-1 has-text-centered">
-          HelpersConnect <i className="fas fa-hands-helping"></i>
-        </h1>
+      <header className="logo-holder my-4">
+        <img src={require("../../assets/logo.png")} alt="logo" class="logo" />
         <hr />
       </header>
     </Heading>
